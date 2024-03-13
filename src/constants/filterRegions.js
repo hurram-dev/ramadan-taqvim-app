@@ -52,13 +52,22 @@ export const filterRegions = [
         addMinute: true,
         morning: 12,
         evening: 8
-    },{
+    },
+    {
         id: 10,
         name: `Termiz`,
         addMinute: true,
         morning: 10,
         evening: 6
-    },{
+    },
+    {
+        id: 13,
+        name: `Guliston`,
+        addMinute: true,
+        morning: 4,
+        evening: 2
+    },
+    {
         id: 11,
         name: `Qarshi`,
         addMinute: true,
