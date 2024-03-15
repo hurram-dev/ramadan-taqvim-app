@@ -103,7 +103,7 @@ export default function Banner () {
                 <div className="bg-white md:w-[30rem] w-full rounded px-2 py-2.5 text-gray-400 font-semibold md:font-medium">
                     Siz
                     <Link
-                    className="font-semibold md:font-medium mx-1 mt-2.5 text-green-500 shadow-xl"
+                    className="font-semibold md:font-medium mx-1 mt-2.5 text-xl text-green-500 shadow-xl"
                     href='/full-taqvim'>
                         {totalCompletedFastingDays}
                     </Link>
