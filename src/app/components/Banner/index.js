@@ -9,6 +9,8 @@ import useFilter from "@/hooks/useFilter";
 import {getComputedTime} from "@/utils/taqvimTableUtils";
 import dayjs from "dayjs";
 import 'dayjs/locale/uz-latn'
+import Link from "next/link";
+import {useCompletedFastingDays} from "@/hooks/useCompletedFastingDays";
 
 
 const duaList = {
@@ -33,7 +35,6 @@ const duaList = {
 
 export default function Banner () {
     const [duaModal, setDuaModal] = useState(null)
-
     const onDuaClickHandler = useCallback((type) => {
         setDuaModal(duaList?.[type])
     }, [duaList])
@@ -43,8 +44,11 @@ export default function Banner () {
     }, [])
 
     const {data, isLoading} = useSWR('/api/taqvim?query=today', fetcher)
-    const {filterRegions, onFilterByRegionSelected, filter} = useFilter()
 
+    const {filterRegions, onFilterByRegionSelected, filter} = useFilter()
+    const {completedDays} = useCompletedFastingDays()
+
+    const totalCompletedFastingDays = Object.values(completedDays ?? {}).filter((value) => value).length
 
     return <div
         className='home__banner h-screen xl:h-[40rem] backdrop-blur-xl w-full bg-center bg-no-repeat bg-cover'
@@ -93,6 +97,23 @@ export default function Banner () {
                         className="today-item__button font-semibold mt-2.5 px-4 py-2 rounded-full border-2 border-green-700 bg-white text-green-500 shadow-xl">
                         Iftorlik Duosi
                     </button>
+                </div>
+            </div>
+            <div className="home-completed-days__wrapper w-full mt-3 flex items-center justify-center">
+                <div className="bg-white md:w-[30rem] w-full rounded px-2 py-2.5 text-gray-400 font-semibold md:font-medium">
+                    Siz
+                    <Link
+                    className="font-semibold md:font-medium mx-1 mt-2.5 text-green-500 shadow-xl"
+                    href='/full-taqvim'>
+                        {totalCompletedFastingDays}
+                    </Link>
+                    kun ro'za tutdingiz, tutilgan kunlarni hisoblab borish uchun
+
+                     <Link
+                        className="font-semibold ml-1 mt-2.5 text-green-500 shadow-xl"
+                        href='/full-taqvim'>
+                         hisoblash
+                    </Link> ni bosing.
                 </div>
             </div>
             <ReactModal

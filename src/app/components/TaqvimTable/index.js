@@ -4,23 +4,17 @@ import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import useFilter from "@/hooks/useFilter";
 import { getComputedTime, getWeekdayAndMonth } from "@/utils/taqvimTableUtils";
+import {useCompletedFastingDays} from "@/hooks/useCompletedFastingDays";
 
 export default function TaqvimTable() {
   const { data, isLoading } = useSWR("/api/taqvim", fetcher);
   const { onFilterByRegionSelected, filter, filterRegions } = useFilter();
+  const {completedDays, setCompletedDays} = useCompletedFastingDays()
 
-  const [isChecked, setIsChecked] = useState({});
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const localStorageData = localStorage.getItem("checkboxData");
-
-      setIsChecked(localStorageData ? JSON.parse(localStorageData) : {});
-    }
-  }, []);
 
   const handleCheckboxChange = (entryId) => {
-    setIsChecked((prevState) => ({
+    setCompletedDays((prevState) => ({
       ...prevState,
       [entryId]: !prevState[entryId],
     }));
@@ -28,8 +22,8 @@ export default function TaqvimTable() {
     localStorage.setItem(
       "checkboxData",
       JSON.stringify({
-        ...isChecked,
-        [entryId]: !isChecked[entryId],
+        ...completedDays,
+        [entryId]: !completedDays[entryId],
       })
     );
   };
@@ -50,14 +44,14 @@ export default function TaqvimTable() {
           </option>
         ))}
       </select>
-      <table className="overflow-x-scroll text-sm text-left text-gray-500 table-auto md:w-full dark:text-gray-400 md:overflow-auto">
+      <table className="text-sm text-left text-gray-500 table-auto md:w-full dark:text-gray-400 md:overflow-auto">
         <thead className="text-xs text-white uppercase bg-green-700 dark:bg-green-600">
           <tr>
             <th scope="col" className="px-4 py-2 lg:px-6 lg:py-3">
               Kun
             </th>
-            <th scope="col" className="py-2 lg:py-3">
-              {"  "}
+            <th scope="col" className="py-2 lg:py-3 text-center">
+              Tutilgan Kunlar
             </th>
             <th scope="col" className="px-4 py-2 lg:px-6 lg:py-3">
               Hafta Kunlari
@@ -84,13 +78,13 @@ export default function TaqvimTable() {
                     {entry?.id}
                   </th>
                   <td className="px-0 py-3 text-2xl font-semibold lg:py-4">
-                    <div className="flex items-center justify-start">
+                    <div className="flex items-center justify-center">
                       <label>
                         <input
                           type="checkbox"
-                          checked={isChecked[entry.id] || false}
+                          checked={completedDays?.[entry.id] || false}
                           onChange={() => handleCheckboxChange(entry.id)}
-                          className="w-4 h-4 p-4 mr-2 bg-white border-2 rounded sm:h-5 sm:w-5 accent-green-700"
+                          className="w-4 h-4 p-2.5 md:p-4 mr-2 bg-white border-2 rounded sm:h-5 sm:w-5 accent-green-700"
                         />
                       </label>
                     </div>
