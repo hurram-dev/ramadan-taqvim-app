@@ -8,8 +8,8 @@ export const filterRegions = [
         id: 2,
         name: `Farg'ona`,
         addMinute: false,
-        morning: 9,
-        evening: 11
+        morning: 7,
+        evening: 9
     },{
         id: 3,
         name: `Namangan`,
@@ -20,59 +20,59 @@ export const filterRegions = [
         id: 4,
         name: `Qo'qon`,
         addMinute: false,
-        morning: 6,
+        morning: 5,
         evening: 7
     },{
         id: 5,
         name: `Buxoro`,
         addMinute: true,
-        morning: 22,
-        evening: 19
+        morning: 24,
+        evening: 22
     },{
         id: 6,
         name: `Jizzax`,
         addMinute: true,
         morning: 8,
-        evening: 6
+        evening: 7
     },{
         id: 7,
         name: `Navoiy`,
         addMinute: true,
-        morning: 18,
-        evening: 16
+        morning: 20,
+        evening: 21
     },{
         id: 8,
         name: `Nukus`,
         addMinute: true,
-        morning: 37,
+        morning: 38,
         evening: 39
     },{
         id: 9,
         name: `Samarqand`,
         addMinute: true,
-        morning: 12,
-        evening: 8
+        morning: 15,
+        evening: 13
     },
     {
         id: 10,
         name: `Termiz`,
         addMinute: true,
-        morning: 10,
-        evening: 6
+        morning: 14,
+        evening: 9
     },
     {
         id: 13,
         name: `Guliston`,
         addMinute: true,
-        morning: 4,
+        morning: 3,
         evening: 2
     },
     {
         id: 11,
         name: `Qarshi`,
         addMinute: true,
-        morning: 19,
-        evening: 14
+        morning: 18,
+        evening: 15
     },{
         id: 12,
         name: `Urganch`,

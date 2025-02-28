@@ -16,7 +16,6 @@ export async function GET(request) {
 
         // Filter today's taqvim
         const todaysTaqvim = taqvimData.find(day => {
-            console.log(new Date(day.date), today, 'one taqvim')
             return new Date(day.date).getTime() === today.getTime()
         });
 
