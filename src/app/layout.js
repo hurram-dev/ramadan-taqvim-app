@@ -13,9 +13,10 @@ export const viewport = {
 export const metadata = {
   title: "Ramazon Taqvimi",
   description: "30 kunlik Ramazon Taqvimi shu yerda",
+    robots: "index follow",
     generator: "Ramazon Taqvim",
     manifest: "/manifest.json",
-    keywords: ["ramazon taqvimi", "30 kunlik ramazon taqvimi", "saharlik duosi", "iftorlik duosi", "ramazon taqvimi uzbekistan"],
+    keywords: ["ramazon taqvimi 2025", "30 kunlik ramazon taqvimi", "saharlik duosi", "iftorlik duosi", "ramazon taqvimi uzbekistan 2025"],
     authors: [
         { name: "Xurrambek Sadriddinov" },
         {
@@ -27,6 +28,10 @@ export const metadata = {
         { rel: "apple-touch-icon", url: "/icon-192x192.png" },
         { rel: "icon", url: "/icon-192x192.png" },
     ],
+    other: {
+        "google-site-verification": "S0-kULhITgTMy8t_Y7UcB3TUTohuQn-_Y35aJySRuRg",
+        "yandex-verification": "b2fb31e96b0e5764"
+    },
 };
 
 export default function RootLayout({ children }) {
