@@ -43,9 +43,9 @@ export default function Banner () {
         setDuaModal(null)
     }, [])
 
-    const {data, isLoading} = useSWR('/api/taqvim?query=today', fetcher)
 
-    const {filterRegions, onFilterByRegionSelected, filter} = useFilter()
+    const {filterRegions, onFilterByRegionSelected, filter, country} = useFilter()
+    const {data, isLoading} = useSWR(`/api/taqvim?query=today&country=${country}`, fetcher)
     const {completedDays} = useCompletedFastingDays()
 
     const totalCompletedFastingDays = Object.values(completedDays ?? {}).filter((value) => value).length
@@ -74,7 +74,7 @@ export default function Banner () {
                         Saharlik
                         Vaqti</h3>
                     <div className='today-item__time font-extrabold text-green-700 text-6xl mt-1'>
-                        {!isLoading ? getComputedTime(data?.date, filter, data?.time?.morning, 'MORNING')
+                        {!isLoading && data ? getComputedTime(data?.date, filter, data?.time?.morning, 'MORNING')
                             : '...'}
                     </div>
                     <p className='font-medium text-green-700 text-xl mt-0.5'>{dayjs().locale('uz-latn').format('D MMMM, YYYY')}</p>
@@ -89,7 +89,7 @@ export default function Banner () {
                         Iftorlik
                         Vaqti</h3>
                     <div className='today-item__time font-extrabold text-green-700 text-6xl mt-1'>
-                        {!isLoading ? getComputedTime(data?.date, filter, data?.time?.evening, 'EVENING') : '...'}
+                        {!isLoading && data ? getComputedTime(data?.date, filter, data?.time?.evening, 'EVENING') : '...'}
                     </div>
                     <p className='font-medium text-green-700 text-xl mt-0.5'>{dayjs().locale('uz-latn').format('D MMMM, YYYY')}</p>
                     <button

@@ -7,8 +7,9 @@ import { getComputedTime, getWeekdayAndMonth } from "@/utils/taqvimTableUtils";
 import {useCompletedFastingDays} from "@/hooks/useCompletedFastingDays";
 
 export default function TaqvimTable() {
-  const { data, isLoading } = useSWR("/api/taqvim", fetcher);
-  const { onFilterByRegionSelected, filter, filterRegions } = useFilter();
+  const { onFilterByRegionSelected, filter, filterRegions, country } = useFilter();
+    const { data, isLoading } = useSWR(`/api/taqvim?country=${country}`, fetcher);
+
   const {completedDays, setCompletedDays} = useCompletedFastingDays()
 
 

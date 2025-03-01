@@ -4,11 +4,24 @@ import { promises as fs } from 'fs';
 export async function GET(request) {
     const searchParams = request.nextUrl.searchParams
     const query = searchParams.get('query')
+    const country = searchParams.get('country')
+    let computedPathToTaqvim = 'uz'
 
 
     const jsonDirectory = path.join(process.cwd(), 'public');
     // Read the "data.json" file
-    const fileContents = await fs.readFile(jsonDirectory + '/data/taqvim.json', 'utf8');
+    switch(country) {
+        case 'de': {
+            computedPathToTaqvim = 'de'
+            break;
+        }
+
+        default: {
+            computedPathToTaqvim = 'uz'
+            break;
+        }
+    }
+    const fileContents = await fs.readFile(jsonDirectory + `/data/${computedPathToTaqvim}/taqvim.json`, 'utf8');
     const taqvimData = await JSON.parse(fileContents);
     if(query === 'today') {
         const today = new Date()
