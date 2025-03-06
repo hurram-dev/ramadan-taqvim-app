@@ -11,12 +11,12 @@ export const viewport = {
 }
 
 export const metadata = {
-  title: "Ramazon Taqvimi",
-  description: "30 kunlik Ramazon Taqvimi shu yerda",
+  title: "Ramazon taqvimi 2025: Toshkent va O‘zbekistonning boshqa shaharlari uchun saharlik va iftorlik vaqtlari",
+  description: "2025-yilgi Ramazon oyining O‘zbekiston uchun rasmiy taqvimi. 2025-yilgi muqaddas Ramazon oyining saharlik va iftorlik uchun har kunlik aniq vaqtlari bilan tanishing. Saharlik va iftorlik duolari matnini saqlab oling.",
     robots: "index follow",
     generator: "Ramazon Taqvim",
     manifest: "/manifest.json",
-    keywords: ["ramazon taqvimi 2025", "30 kunlik ramazon taqvimi", "saharlik duosi", "iftorlik duosi", "ramazon taqvimi uzbekistan 2025"],
+    keywords: ["ramazon taqvimi 2025", "30 kunlik ramazon taqvimi", "saharlik duosi", "iftorlik duosi", "ramazon taqvimi uzbekistan 2025", "ramazon 2025", "ro‘za 2025", "saharlik vaqti", "iftorlik vaqti", "og‘iz yopish", "og‘iz ochish",  "O‘zbekiston, ramazon", "ro‘za", "saharlik", "iftorlik"],
     authors: [
         { name: "Xurrambek Sadriddinov" },
         {
