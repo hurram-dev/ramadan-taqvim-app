@@ -30,7 +30,7 @@ export const metadata = {
         { rel: "apple-touch-icon", url: "/icon-192x192.png" },
         { rel: "icon", url: "/icon-192x192.png" },
     ],
-    appleWebApp: {
+    mobileWebApp: {
       capable: true,
       statusBarStyle: "black-translucent",
       title: "Ramazon Taqvimi",
