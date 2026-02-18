@@ -11,7 +11,8 @@ export const weekDays = {
 }
 export const months = {
     Mar: 'Mart',
-    Apr:'Aprel'
+    Apr:'Aprel',
+    Feb: 'Fevral'
 }
 export function getComputedTime (date, filter, {hour, minute}, type) {
     const taqvimTime = dayjs(date).hour(hour).minute(minute)
