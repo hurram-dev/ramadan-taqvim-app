@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/Header";
+import InstallPrompt from "@/app/components/InstallPrompt";
+import ServiceWorkerRegister from "@/app/components/ServiceWorkerRegister";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -28,6 +30,11 @@ export const metadata = {
         { rel: "apple-touch-icon", url: "/icon-192x192.png" },
         { rel: "icon", url: "/icon-192x192.png" },
     ],
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "black-translucent",
+      title: "Ramazon Taqvimi",
+    },
     other: {
         "google-site-verification": "S0-kULhITgTMy8t_Y7UcB3TUTohuQn-_Y35aJySRuRg",
         "yandex-verification": "b2fb31e96b0e5764"
@@ -41,6 +48,8 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
           <Header />
           {children}
+          <InstallPrompt />
+          <ServiceWorkerRegister />
           <SpeedInsights />
           <Analytics />
       </body>
