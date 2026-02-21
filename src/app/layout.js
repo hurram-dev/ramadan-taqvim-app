@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import InstallPrompt from "@/app/components/InstallPrompt";
+import NotificationPermission from "@/app/components/NotificationPermission";
 import ServiceWorkerRegister from "@/app/components/ServiceWorkerRegister";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
 
       <body className={inter.className}>
           <Header />
+          <NotificationPermission />
           {children}
           <InstallPrompt />
           <ServiceWorkerRegister />
